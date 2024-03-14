@@ -2,21 +2,14 @@
 
 ## Getting started
 
-Run the following scripts:
+Clone this repository and run the following scripts:
 
 ```
+git clone https://github.com/beanie999/nr1-attribute-explorer.git
+cd nr1-attribute-explorer
+nr1 nerdpack:uuid -gf
 npm install
-npm start
+nr1 nerdpack:serve
 ```
 
-Visit https://one.newrelic.com/?nerdpacks=local and :sparkles:
-
-## Creating new artifacts
-
-If you want to create new artifacts run the following command:
-
-```
-nr1 create
-```
-
-> Example: `nr1 create --type nerdlet --name my-nerdlet`.
+Visit https://one.newrelic.com/?nerdpacks=local or https://one.eu.newrelic.com/?nerdpacks=local

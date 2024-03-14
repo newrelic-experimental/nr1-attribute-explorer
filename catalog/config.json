@@ -1,0 +1,20 @@
+{
+  "tagline": "Explore Attribute Performance",
+  "details": "Understand and filter the performance data of your services by attributes, then drill into relevant traces",
+  "categoryTerms": ["language agent" ],
+  "keywords": ["Performance", "APM", "OTEL", "OpenTelemetry"],
+  "repository": "https://github.com/beanie999/nr1-attribute-explorer",
+  "whatsNew": "nr1 version.",
+  "support": {
+    "email": {
+      "address": ""
+    },
+    "issues": {
+      "url": ""
+    },
+    "community": {
+      "url": ""
+    }
+  }
+}
+

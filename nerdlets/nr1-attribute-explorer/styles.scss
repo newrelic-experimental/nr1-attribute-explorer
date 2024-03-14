@@ -1,3 +1,44 @@
 .my-nerdlet {
   outline: 1px solid black;
 }
+
+.myBox {
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+}
+
+.myHeader {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.mySpaceBelow {
+  margin-bottom: 1%;
+}
+
+.mySpaceRight {
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.mySpaceLeft {
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.mySpaceTop {
+  margin-top: 1%;
+}
+
+.myNoData {
+  margin-top: 10%;
+  text-align: center;
+  font-style: italic;
+}
+
+.myParameterBox {
+  margin-left: 2%;
+  margin-right: 2%;
+}

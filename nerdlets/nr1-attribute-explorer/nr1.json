@@ -1,6 +1,18 @@
 {
   "schemaType": "NERDLET",
   "id": "nr1-attribute-explorer",
-  "displayName": "Nr1AttributeExplorer",
-  "description": ""
+  "displayName": "Attribute Explorer",
+  "description": "Explore response times by attributes for APM and OTEL services.",
+  "context": {
+    "entities": [
+      {
+        "domain": "APM",
+        "type": "APPLICATION"
+      },
+      {
+        "domain": "EXT",
+        "type": "SERVICE"
+      }
+    ]
+  }
 }
