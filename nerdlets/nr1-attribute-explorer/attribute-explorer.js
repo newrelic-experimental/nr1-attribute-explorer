@@ -400,7 +400,7 @@ export default class AttributeExplorer extends React.Component {
               <ChartGroup>
                 <GridItem columnSpan={5}>
                   <Tile type={Tile.TYPE.PLAIN} sizeType={Tile.SIZE_TYPE.SMALL}>
-                    <HeadingText className="mySpaceBelow myHeader">*** Performance over time</HeadingText>
+                    <HeadingText className="mySpaceBelow myHeader">Performance over time</HeadingText>
                     {this.state.headerCharts[0]}
                   </Tile>
                 </GridItem>
