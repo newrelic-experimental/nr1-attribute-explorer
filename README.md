@@ -29,7 +29,7 @@ The middle section performs a number of functions:
 - It allows the user to select the performance metric displayed for each of the attributes in the lower section (50th, 75th, 90th and 99th percentile, as well as average and count).
 - For New Relic APM you can select from the Transaction, TransactionError and Span event type.
 - It shows a count of the number of attribute charts being displayed in the lower section.
-- Gives a Traces button, whihc allows the user to launch from here into a filtered view of traces (filtered by the attributes selected).
+- Gives a Traces button, which allows the user to launch from here into a filtered view of traces (filtered by the attributes selected).
 - A button so the user can clear all current attribute filters.
 - The current attribute values for which the UI is filtered on (upper performance charts and lower attribute charts).
 
