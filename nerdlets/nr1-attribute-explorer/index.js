@@ -1,6 +1,12 @@
-import React from 'react';
-import { NerdletStateContext, EntityByGuidQuery, Spinner, StackItem, SectionMessage } from 'nr1';
-import AttributeExplorer from './attribute-explorer';
+import React from "react";
+import {
+  NerdletStateContext,
+  EntityByGuidQuery,
+  Spinner,
+  StackItem,
+  SectionMessage,
+} from "nr1";
+import AttributeExplorer from "./attribute-explorer";
 
 /*
   Main parent class, checks for an entity guid and calls the main class (AttributeExplorer).
@@ -13,11 +19,10 @@ export default class Nr1AttributeExplorerNerdlet extends React.Component {
 
   // Method to get and return the entity guid from the nerdlet state.
   getEntityGuid(nerd) {
-    if (nerd.hasOwnProperty('entityGuid')) {
+    if (nerd.hasOwnProperty("entityGuid")) {
       console.log(nerd);
       return nerd.entityGuid;
-    }
-    else {
+    } else {
       return null;
     }
   }
@@ -27,7 +32,7 @@ export default class Nr1AttributeExplorerNerdlet extends React.Component {
   render() {
     return (
       <NerdletStateContext.Consumer>
-        {(nerdletState) => 
+        {(nerdletState) => (
           <EntityByGuidQuery entityGuid={this.getEntityGuid(nerdletState)}>
             {({ loading, error, data }) => {
               if (loading) {
@@ -38,20 +43,18 @@ export default class Nr1AttributeExplorerNerdlet extends React.Component {
                 return (
                   <StackItem>
                     <SectionMessage
-                     type={SectionMessage.TYPE.CRITICAL}
-                     title="Error in lauching the app."
+                      type={SectionMessage.TYPE.CRITICAL}
+                      title="Error in lauching the app."
                       description={error.message}
                     />
-                 </StackItem>
+                  </StackItem>
                 );
               }
 
               if (data.entities.length === 0) {
                 return (
                   <StackItem>
-                    <SectionMessage
-                      description="No service found, please launch the app from within an APM or OTEL service."
-                    />
+                    <SectionMessage description="No service found, please launch the app from within an APM or OTEL service." />
                   </StackItem>
                 );
               }
@@ -67,8 +70,8 @@ export default class Nr1AttributeExplorerNerdlet extends React.Component {
               );
             }}
           </EntityByGuidQuery>
-        }
+        )}
       </NerdletStateContext.Consumer>
     );
-  }  
+  }
 }
