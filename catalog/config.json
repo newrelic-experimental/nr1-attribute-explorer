@@ -4,7 +4,7 @@
   "categoryTerms": ["language agent" ],
   "keywords": ["Performance", "APM", "OTEL", "OpenTelemetry"],
   "repository": "https://github.com/newrelic-experimental/nr-attribute-explorer",
-  "whatsNew": "nr1 version.",
+  "whatsNew": "Code refactor.",
   "support": {
     "email": {
       "address": ""

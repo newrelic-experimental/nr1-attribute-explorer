@@ -25,6 +25,7 @@ const AttributeExplorerView = ({
   setAttribute,
   domain,
 }) => {
+  let eventOptionsAPM = eventOptions.slice(0, 3);
   return (
     <div>
       <Layout>
@@ -62,7 +63,7 @@ const AttributeExplorerView = ({
                     <span className="mySpaceRight">of:</span>
                     <CustomDropdown
                       title={event}
-                      options={eventOptions}
+                      options={eventOptionsAPM}
                       onSelect={setEvent}
                       iconType={
                         Dropdown.ICON_TYPE.DATAVIZ__DATAVIZ__TABLE_CHART
