@@ -20,6 +20,13 @@ const excludeAttributes = [
   "totalTime",
   "webDuration",
   "duration.ms",
+  "tags.account",
+  "tags.accountId",
+  "tags.trustedAccountId",
+  "appName",
+  "service.name",
+  "entity.name",
+  "entity.type"
 ];
 
 /*

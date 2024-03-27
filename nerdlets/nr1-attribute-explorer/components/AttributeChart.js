@@ -11,7 +11,11 @@ import {
   Stack,
   StackItem,
   SectionMessage,
+  Popover,
+  PopoverBody,
+  PopoverTrigger,
 } from "nr1";
+import { PopoverChart } from "./PopoverChart";
 
 const AttributeChartQuery = ({
   accountId,
@@ -21,38 +25,42 @@ const AttributeChartQuery = ({
   onClickBar,
 }) => {
   return (
-    <NrqlQuery
-      accountIds={[accountId]}
-      query={query}
-      pollInterval={pollInterval}
-      timeRange={timeRange}
-    >
-      {({ loading, error, data }) => {
-        if (loading) {
-          return <Spinner type={Spinner.TYPE.DOT} />;
-        }
+    <PlatformStateContext.Consumer>
+      {(platformState) => (
+        <NrqlQuery
+          accountIds={[accountId]}
+          query={query}
+          pollInterval={pollInterval}
+          timeRange={platformState.timeRange}
+        >
+          {({ loading, error, data }) => {
+            if (loading) {
+              return <Spinner type={Spinner.TYPE.DOT} />;
+            }
 
-        if (error) {
-          return (
-            <Stack>
-              <StackItem>
-                <SectionMessage
-                  type={SectionMessage.TYPE.WARNING}
-                  title="Chart failed to display."
-                  description={error.message}
-                />
-              </StackItem>
-            </Stack>
-          );
-        }
+            if (error) {
+              return (
+                <Stack>
+                  <StackItem>
+                    <SectionMessage
+                      type={SectionMessage.TYPE.WARNING}
+                      title="Chart failed to display."
+                      description={error.message}
+                    />
+                  </StackItem>
+                </Stack>
+              );
+            }
 
-        if (data != null && data.length > 0) {
-          return <BarChart data={data} fullWidth onClickBar={onClickBar} />;
-        } else {
-          return <div className="myNoData">No values.</div>;
-        }
-      }}
-    </NrqlQuery>
+            if (data != null && data.length > 0) {
+              return <BarChart data={data} fullWidth onClickBar={onClickBar} />;
+            } else {
+              return <div className="myNoData">No values.</div>;
+            }
+          }}
+        </NrqlQuery>
+      )}
+    </PlatformStateContext.Consumer>
   );
 };
 
@@ -67,21 +75,26 @@ const AttributeChart = ({
     <GridItem columnSpan={2}>
       <Tile type={Tile.TYPE.PLAIN} sizeType={Tile.SIZE_TYPE.SMALL}>
         <div className="myHeader">
-          <HeadingText type={HeadingText.TYPE.HEADING_5}>
-            {attribute}
-          </HeadingText>
+          <Popover openOnHover="true">
+            <PopoverTrigger>
+              <HeadingText type={HeadingText.TYPE.HEADING_5}>
+                {attribute}
+              </HeadingText>
+            </PopoverTrigger>
+            <PopoverBody>
+              <PopoverChart
+                accountId={accountId}
+                query={query}
+              />
+            </PopoverBody>
+          </Popover>
         </div>
-        <PlatformStateContext.Consumer>
-          {(platformState) => (
-            <AttributeChartQuery
-              accountId={accountId}
-              query={query}
-              pollInterval={pollInterval}
-              platformState={platformState}
-              onClickBar={onClickBar}
-            />
-          )}
-        </PlatformStateContext.Consumer>
+        <AttributeChartQuery
+          accountId={accountId}
+          query={query}
+          pollInterval={pollInterval}
+          onClickBar={onClickBar}
+        />
       </Tile>
     </GridItem>
   );

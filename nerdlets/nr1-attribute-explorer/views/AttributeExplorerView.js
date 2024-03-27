@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, LayoutItem, Tile, BlockText, Button, Dropdown } from "nr1";
+import { Layout, LayoutItem, Tile, BlockText, Button, Dropdown, Tooltip } from "nr1";
 import { HeaderChartsContainer } from "../components/HeaderChartsContainer";
 import { AttributeChartsContainer } from "../components/AttributeChartsContainer";
 import { CustomDropdown } from "../components/CustomDropdown";
@@ -72,15 +72,20 @@ const AttributeExplorerView = ({
                   </span>
                 )}
                 Number of attributes: {attributes.length}
-                <Button
-                  onClick={getTraces}
-                  className="mySpaceLeft"
-                  iconType={
-                    Button.ICON_TYPE.HARDWARE_AND_SOFTWARE__SOFTWARE__TRACES
-                  }
+                <Tooltip
+                  text="View relevant traces filtered by the attributes selected."
+                  placementType={Tooltip.PLACEMENT_TYPE.BOTTOM}
                 >
-                  Traces
-                </Button>
+                  <Button
+                    onClick={getTraces}
+                    className="mySpaceLeft"
+                    iconType={
+                      Button.ICON_TYPE.HARDWARE_AND_SOFTWARE__SOFTWARE__TRACES
+                    }
+                  >
+                    Traces
+                  </Button>
+                </Tooltip>
                 <div className="mySpaceTop">
                   <Button
                     iconType={
